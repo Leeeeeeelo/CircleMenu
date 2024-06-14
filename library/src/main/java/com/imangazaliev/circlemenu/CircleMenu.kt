@@ -157,6 +157,10 @@ class CircleMenu @JvmOverloads constructor(
         menuLayout.open(true)
     }
 
+    private fun hideMenu() {
+        menuLayout.visibility = View.GONE
+    }
+
     override fun setOnClickListener(l: OnClickListener?) {
         //empty
     }
@@ -178,7 +182,7 @@ class CircleMenu @JvmOverloads constructor(
     }
 
     fun close(animate: Boolean) {
-        this.menuLayout.open(animate)
+        this.menuLayout.close(animate)
     }
 
     fun onMenuOpenAnimationStart(listener: () -> Unit) {
