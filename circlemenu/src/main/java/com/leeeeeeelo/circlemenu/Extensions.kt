@@ -4,7 +4,6 @@ import android.graphics.drawable.Drawable
 import android.view.View
 import android.view.ViewTreeObserver
 import android.view.ViewTreeObserver.OnGlobalLayoutListener
-import androidx.core.view.ViewCompat
 
 
 internal fun Drawable.setTintCompat(color: Int) {
@@ -17,7 +16,7 @@ fun View.onLaidOut(listener: () -> Unit) {
 
 /** Executes the given [java.lang.Runnable] when the view is laid out  */
 internal fun View.onLaidOut(removeListener: Boolean, listener: () -> Unit) {
-    if (isLaidOut(this)) {
+    if (isLaidOut) {
         listener()
         return
     }
@@ -34,9 +33,4 @@ internal fun View.onLaidOut(removeListener: Boolean, listener: () -> Unit) {
 private fun removeOnGlobalLayoutListener(observer: ViewTreeObserver,
                                          listener: OnGlobalLayoutListener?) {
     observer.removeOnGlobalLayoutListener(listener)
-}
-
-/** Returns whether or not the view has been laid out  */
-private fun View.isLaidOut(view: View): Boolean {
-    return ViewCompat.isLaidOut(view) && view.width > 0 && view.height > 0
 }
