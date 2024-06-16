@@ -1,7 +1,6 @@
 plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.jetbrains.kotlin.android)
-    `maven-publish`
 }
 
 android {
@@ -30,42 +29,6 @@ android {
     }
     kotlinOptions {
         jvmTarget = "17"
-    }
-}
-
-publishing {
-    publications {
-        create<MavenPublication>("release") {
-            from(components.findByName("release"))
-
-            groupId = "com.github.leeeeeeelo"
-            artifactId = "CircleMenu"
-            version = "1.0.2"
-
-            pom {
-                name.set("CircleMenu")
-                description.set("A Circle Menu for Android.")
-                url.set("https://github.com/Leeeeeeelo/CircleMenu")
-                licenses {
-                    license {
-                        name.set("The MIT License")
-                        url.set("https://opensource.org/license/mit")
-                    }
-                }
-                developers {
-                    developer {
-                        id.set("Leeeeeeelo")
-                        name.set("Leeeeeeelo")
-                        email.set("sayegh308@gmail.com")
-                    }
-                }
-                scm {
-                    connection.set("scm:git:git://github.com/Leeeeeeelo/CircleMenu.git")
-                    developerConnection.set("scm:git:ssh://github.com/Leeeeeeelo/CircleMenu.git")
-                    url.set("https://github.com/Leeeeeeelo/CircleMenu")
-                }
-            }
-        }
     }
 }
 
