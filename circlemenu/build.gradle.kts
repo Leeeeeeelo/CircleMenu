@@ -41,7 +41,7 @@ android {
 publishing {
     publications {
         create<MavenPublication>("release") {
-            from(project.components["release"])
+            from(components.findByName("release"))
 
             groupId = "com.github.leeeeeeelo"
             artifactId = "CircleMenu"
