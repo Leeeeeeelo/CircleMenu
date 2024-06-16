@@ -38,6 +38,17 @@ android {
     }
 }
 
+publishing {
+    publications {
+        create<MavenPublication>("release") {
+            from(components.findByName("release"))
+
+            groupId = "com.github.leeeeeeelo"
+            artifactId = "CircleMenu"
+        }
+    }
+}
+
 dependencies {
 
     implementation(libs.androidx.core.ktx)
