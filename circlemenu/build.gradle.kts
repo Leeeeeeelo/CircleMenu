@@ -4,8 +4,6 @@ plugins {
     `maven-publish`
 }
 
-group = "com.github.leeeeeeelo"
-
 android {
     namespace = "com.leeeeeeelo.circlemenu"
     compileSdk = 34
@@ -40,29 +38,31 @@ android {
     }
 }
 
-publishing {
-    publications {
-        create<MavenPublication>("release") {
-            from(components.findByName("release"))
+afterEvaluate {
+    publishing {
+        publications {
+            create<MavenPublication>("release") {
+                from(components["release"])
 
-            groupId = "com.github.leeeeeeelo"
-            artifactId = "CircleMenu"
+                groupId = "com.github.leeeeeeelo"
+                artifactId = "CircleMenu"
 
-            pom {
-                name.set("CircleMenu")
-                description.set("A Circle Menu for Android.")
-                url.set("https://github.com/Leeeeeeelo/CircleMenu")
-                licenses {
-                    license {
-                        name.set("The MIT License")
-                        url.set("https://opensource.org/license/mit")
+                pom {
+                    name.set("CircleMenu")
+                    description.set("A Circle Menu for Android.")
+                    url.set("https://github.com/Leeeeeeelo/CircleMenu")
+                    licenses {
+                        license {
+                            name.set("The MIT License")
+                            url.set("https://opensource.org/license/mit")
+                        }
                     }
-                }
-                developers {
-                    developer {
-                        id.set("Leeeeeeelo")
-                        name.set("Elias Sayegh")
-                        email.set("sayegh308@gmail.com")
+                    developers {
+                        developer {
+                            id.set("Leeeeeeelo")
+                            name.set("Elias Sayegh")
+                            email.set("sayegh308@gmail.com")
+                        }
                     }
                 }
             }
