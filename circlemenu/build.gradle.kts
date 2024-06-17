@@ -33,6 +33,41 @@ android {
     kotlinOptions {
         jvmTarget = "17"
     }
+    publishing {
+        singleVariant("release") {
+            withSourcesJar()
+        }
+    }
+}
+
+publishing {
+    publications {
+        create<MavenPublication>("release") {
+            from(components.findByName("release"))
+
+            groupId = "com.github.leeeeeeelo"
+            artifactId = "CircleMenu"
+
+            pom {
+                name.set("CircleMenu")
+                description.set("A Circle Menu for Android.")
+                url.set("https://github.com/Leeeeeeelo/CircleMenu")
+                licenses {
+                    license {
+                        name.set("The MIT License")
+                        url.set("https://opensource.org/license/mit")
+                    }
+                }
+                developers {
+                    developer {
+                        id.set("Leeeeeeelo")
+                        name.set("Elias Sayegh")
+                        email.set("sayegh308@gmail.com")
+                    }
+                }
+            }
+        }
+    }
 }
 
 dependencies {
