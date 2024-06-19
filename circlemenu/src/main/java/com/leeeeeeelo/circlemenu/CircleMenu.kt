@@ -171,8 +171,8 @@ class CircleMenu @JvmOverloads constructor(
     }
 
     @Suppress("unused")
-    fun toggle() {
-        this.menuLayout.toggle()
+    fun toggle(animate: Boolean = true) {
+        this.menuLayout.toggle(animate)
     }
 
     @Suppress("unused")
