@@ -5,12 +5,12 @@
 [![Release](https://jitpack.io/v/Leeeeeeelo/CircleMenu.svg)](https://jitpack.io/#Leeeeeeelo/CircleMenu) ![minSDK](https://img.shields.io/badge/minSdkVersion-24-blue.svg)
 
 ## Table of Contents
-1. [Setup](#setup)
-2. [Examples](#examples)
-3. [Documentation](#documentation)
-4. [Origin & Attribution](#origin-attribution)
-5. [Notice](#notice)
-6. [License](#license)
+1. [Setup](#1-setup-hammer_and_wrench)
+2. [Examples](#2-examples-eyes)
+3. [Documentation](#3-documentation-notebook_with_decorative_cover)
+4. [Origin & Attribution](#4-origin--attribution--scroll)
+5. [Notice](#5-notice--warning)
+6. [License](#6-license--page_facing_up)
 
 ## 1. Setup :hammer_and_wrench:
 
