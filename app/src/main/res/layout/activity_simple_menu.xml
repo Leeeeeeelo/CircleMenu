@@ -1,17 +1,53 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/snackbarContainer"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#000000">
 
+    <Button
+        android:id="@+id/openMenuButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Open"/>
+
+    <Button
+        android:id="@+id/closeMenuButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@id/openMenuButton"
+        android:text="Close"/>
+
+    <Button
+        android:id="@+id/toggleMenuButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@id/closeMenuButton"
+        android:text="Toggle"/>
+
+    <Button
+        android:id="@+id/showMenuButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/openMenuButton"
+        android:text="Show"/>
+
+    <Button
+        android:id="@+id/hideMenuButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/openMenuButton"
+        android:layout_toEndOf="@id/showMenuButton"
+        android:text="Hide"/>
+
     <com.leeeeeeelo.circlemenu.CircleMenu
         android:id="@+id/circleMenu"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
         android:layout_margin="16dp"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
         app:buttonColors="@array/simple_menu_colors"
         app:buttonIcons="@array/simple_menu_icons" />
 
-</FrameLayout>
+</RelativeLayout>
