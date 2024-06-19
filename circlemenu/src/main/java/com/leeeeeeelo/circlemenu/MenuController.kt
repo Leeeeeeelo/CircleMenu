@@ -65,11 +65,11 @@ internal class MenuController(
         itemSelectionAnimator.onDraw(canvas)
     }
 
-    fun toggle() {
+    fun toggle(animate: Boolean) {
         if (isOpened) {
-            close(true)
+            close(animate)
         } else {
-            open(true)
+            open(animate)
         }
     }
 

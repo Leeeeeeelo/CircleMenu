@@ -146,8 +146,8 @@ internal class CircleMenuLayout(
         this.onItemLongClickListener = listener
     }
 
-    fun toggle() {
-        menuController.toggle()
+    fun toggle(animate: Boolean = true) {
+        menuController.toggle(animate)
     }
 
     fun open(animate: Boolean = true) {

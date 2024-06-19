@@ -171,8 +171,8 @@ class CircleMenu @JvmOverloads constructor(
     }
 
     @Suppress("unused")
-    fun toggle() {
-        this.menuLayout.toggle()
+    fun toggle(animate: Boolean = true) {
+        this.menuLayout.toggle(animate)
     }
 
     @Suppress("unused")
@@ -181,8 +181,17 @@ class CircleMenu @JvmOverloads constructor(
     }
 
     @Suppress("unused")
-    fun close(animate: Boolean) {
+    fun close(animate: Boolean = true) {
         this.menuLayout.close(animate)
+    }
+
+    override fun setVisibility(visibility: Int) {
+        if (this.visibility == visibility) {
+            return
+        }
+        close(false)
+        menuLayout.visibility = visibility
+        super.setVisibility(visibility)
     }
 
     @Suppress("unused")

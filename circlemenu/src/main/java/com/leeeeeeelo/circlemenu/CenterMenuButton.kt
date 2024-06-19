@@ -44,7 +44,8 @@ internal class CenterMenuButton(
         //animation from closed to opened
         val iconResId = if (isOpening) menuIcon.openingAnimatedIcon else menuIcon.closingAnimatedIcon
 
-        val icon = ContextCompat.getDrawable(context, iconResId)!!
+        val icon = ContextCompat.getDrawable(context, iconResId) as AnimatedVectorDrawable
+        icon.reset()
         icon.setTintCompat(iconColor)
         return icon
     }
