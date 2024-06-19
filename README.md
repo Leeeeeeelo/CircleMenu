@@ -1,127 +1,135 @@
-<p align="center">
- <img width="200px" src="https://res.cloudinary.com/dqxo6zuw7/image/upload/v1598180618/Circle_Menu_bsq21v.png"
-    align="center"
-    alt="Circle Menu"
-    />
- <h2 align="center">CircleMenu</h2>
- <p align="center"><b>Simple, elegant menu with a circular layout!</b></p>
-</p>
+![Circle Menu](https://res.cloudinary.com/dqxo6zuw7/image/upload/v1598180618/Circle_Menu_bsq21v.png)
 
-<p align="center">
-  <a href="https://android-arsenal.com/details/1/5361">
-    <img alt="Android Arsenal" src="https://img.shields.io/badge/Android%20Arsenal-CircleMenu-brightgreen.svg?style=flat" />
-  </a>
-  <a href="#">
-    <img alt="minSdkVersion 15" src="https://img.shields.io/badge/minSdkVersion-15-blue.svg" />
-  </a>
-  <a href="https://bintray.com/imangazaliev/maven/circlemenu/_latestVersion">
-    <img alt="Download" src="https://api.bintray.com/packages/imangazaliev/maven/circlemenu/images/download.svg" />
-  </a>
-  <br />
-</p>
+**CircleMenu**
 
-<p align="center">
-  <a href="#setup">Setup</a> •
-  <a href="#preview">Preview</a> •
-  <a href="#-usage">Usage</a> •
-  <a href="#-license">License</a>
-</p>
+[![Release](https://jitpack.io/v/Leeeeeeelo/CircleMenu.svg)](https://jitpack.io/#Leeeeeeelo/CircleMenu) ![minSDK](https://img.shields.io/badge/minSdkVersion-24-blue.svg)
 
-## 🛠Setup
+## Table of Contents
+1. [Setup](#1-setup-hammer_and_wrench)
+2. [Examples](#2-examples-eyes)
+3. [Documentation](#3-documentation-notebook_with_decorative_cover)
+4. [Origin & Attribution](#4-origin--attribution--scroll)
+5. [Notice](#5-notice--warning)
+6. [License](#6-license--page_facing_up)
 
-Add this to your app build.gradle:
+## 1. Setup :hammer_and_wrench:
 
+First, add the JitPack repository to your build file.
 ```gradle
-implementation 'com.github.imangazalievm:circlemenu:3.0.0'
+repositories {
+	...
+	maven { url 'https://jitpack.io' }
+}
+```
+Second, add this project as a dependency.
+```gradle
+dependencies {
+	...
+	implementation 'com.github.leeeeeeelo:circlemenu:1.0.0'
+}
 ```
 
-## Preview
+## 2. Examples :eyes:
 
 ⭕ Simple Circle Menu:
 
-<img src="https://github.com/ImangazalievM/CircleMenu/blob/master/art/preview_simple.gif" width="50%">
+![Simple Circle Menu](https://raw.githubusercontent.com/Leeeeeeelo/CircleMenu/master/art/preview_simple.gif)
 
-⭕ Using with BottomAppBar:
+⭕ Circle Menu With Bottom App Bar:
 
-<img src="https://github.com/ImangazalievM/CircleMenu/blob/master/art/preview_bottom_bar.gif" width="50%">
+![Bottom App Bar Circle Menu](https://raw.githubusercontent.com/Leeeeeeelo/CircleMenu/master/art/preview_bottom_bar.gif)
 
-⭕ Using as FAB:
+⭕ Corner Circle Menu:
 
-<img src="https://github.com/ImangazalievM/CircleMenu/blob/master/art/preview_fab.gif" width="50%">
+![Corner Circle Menu](https://raw.githubusercontent.com/Leeeeeeelo/CircleMenu/master/art/preview_fab.gif)
 
-## 💥 Usage
+## 3. Documentation :notebook_with_decorative_cover:
 
-Add to your layout xml-file:
+Add to your layout xml file the below:
 
-```xml
-<com.imangazaliev.circlemenu.CircleMenu
-        android:id="@+id/circleMenu"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:buttonColors="@array/colors"
-        app:buttonIcons="@array/icons" />
-```
+```xml  
+<com.leeeeeeelo.circlemenu.CircleMenu  
+	android:id="@+id/circleMenu"
+	android:layout_width="wrap_content"
+	android:layout_height="wrap_content"
+	app:buttonColors="@array/colors"
+	app:buttonIcons="@array/icons" />  
+```  
 
 Handling menu items clicks:
 
-```kotlin
-val circleMenu = findViewById<CircleMenu>(R.id.circleMenu);
-circleMenu.setOnItemClickListener { menuButton ->   }
-```
+```kotlin  
+val circleMenu = findViewById<CircleMenu>(R.id.circleMenu)  
+circleMenu.setOnItemClickListener { buttonIndex -> }  
+```  
 
-You can use ```open(boolean animate)``` and ```close(boolean animate)``` methods, to open and close menu programmatically:
+You can use ```open(boolean animate)```, ```close(boolean animate)``` and ```toggle(boolean animate)``` methods, to open and close menu programmatically:
 
-```kotlin
-circleMenu.open(true)
-```
+```kotlin  
+circleMenu.open(true)  
+```  
 
 Set EventListener for handling open/close actions
 
-```kotlin
-circleMenu.setOnItemClickListener { buttonIndex -> }
+```kotlin  
+circleMenu.setOnItemClickListener { buttonIndex -> }  
+  
+circleMenu.onMenuOpenAnimationStart { }  
+  
+circleMenu.onMenuOpenAnimationEnd { }  
+  
+circleMenu.onMenuCloseAnimationStart { }  
+  
+circleMenu.onMenuCloseAnimationEnd { }  
+  
+circleMenu.onButtonClickAnimationStart { buttonIndex -> }  
+  
+circleMenu.onButtonClickAnimationEnd { buttonIndex -> }  
+```  
 
-circleMenu.onMenuOpenAnimationStart { }
+Below are the Circle Menu attributes:
 
-circleMenu.onMenuOpenAnimationEnd { }
+- `buttonIcons` **(required)** - Array of icons of menu buttons
+- `buttonColors` **(required)** - Array of background colors of menu buttons
+- `iconsColor` - Array of color of buttons icons  
+  <br>
+- `startAngle` - Start circle angle
+- `maxAngle` - Maximum degree of the menu arc
+- `distance` - Distance between center menu and buttons (radius)
+- `centerButtonColor` - Background color of center menu button
+- `centerButtonIconColor` - Icon background color of center menu button  
+  <br>
+- `menuIcon` - Center button icon type. One of  `hamburger` or `plus`
+- `openOnStart` - Bool to open the menu when the screen starts
+- `showSelectAnimation` - Bool to display animation when clicking on a button or closing the menu
 
-circleMenu.onMenuCloseAnimationStart { }
+## 4. Origin & Attribution  :scroll:
 
-circleMenu.onMenuCloseAnimationEnd { }
+This project is a **fork** of [Circle Menu](https://github.com/ImangazalievM/CircleMenu), created by [ImangazalievM](https://github.com/ImangazalievM) and licensed under the [MIT License](https://github.com/ImangazalievM/CircleMenu?tab=readme-ov-file#-license).
 
-circleMenu.onButtonClickAnimationStart { buttonIndex -> }
+I was looking for a menu library myself when I stumbled upon [Circle Menu by ImangazalievM](https://github.com/ImangazalievM/CircleMenu). However it was retired, not up to date and had some bugs. This library is a result of a fork from the original library with the addition of some work of my own to improve it and keep it up to date. All the credits goes to [ImangazalievM](https://github.com/ImangazalievM) for the original amazing work !
 
-circleMenu.onButtonClickAnimationEnd { buttonIndex -> }
-```
+### Changes in this Fork
+- Updated Gradle
+- Updated Java version
+- Updated ```minSDK``` and ```targetSDK```
+- Fixed bugs
+- Added visibility support
+- Released via JitPack
 
-#### ⚙ Options
+## 5. Notice  :warning:
+This product includes software developed by [ImangazalievM](https://github.com/ImangazalievM).
 
-CircleMenu XML-options:
+## 6. License  :page_facing_up:
 
-- `buttonIcons` **(required)** - icons of menu buttons
-- `buttonColors` **(required)** - background colors of menu buttons
-- `iconsColor` - color of buttons icons
-<br><br>
-- `startAngle` - start circle angle
-- `maxAngle` - maximum degree of the menu arc
-- `distance` - the distance between center menu and buttons (radius)
-- `centerButtonColor` - background color of center menu button
-- `centerButtonIconColor` - icon background color of center menu button
-<br><br>
-- `menuIcon` - center button icon type: `hamburger` or `plus`
-- `openOnStart` - open the menu when the screen starts
-- `showSelectAnimation` - show select animation when clicking on on a button or just close the menu
+This library is licensed under the MIT License. See the [MIT License](https://opensource.org/license/mit) license for more details.
 
+```  
+Copyright 2024 Elias Sayegh
 
-## 🤝 License
-
-```
-The MIT License
-
-Copyright (c) 2016-2020 Mahach Imangazaliev
-
-Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the “Software”), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
 The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 ```
