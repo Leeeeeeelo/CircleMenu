@@ -8,6 +8,7 @@ import android.graphics.Rect
 import android.util.AttributeSet
 import android.view.View
 import android.view.ViewGroup
+import android.view.animation.Animation
 import android.widget.FrameLayout
 import androidx.core.content.ContextCompat
 import com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -192,6 +193,11 @@ class CircleMenu @JvmOverloads constructor(
         close(false)
         menuLayout.visibility = visibility
         super.setVisibility(visibility)
+    }
+
+    override fun startAnimation(animation: Animation?) {
+        super.startAnimation(animation)
+        menuLayout.startAnimation(animation)
     }
 
     @Suppress("unused")

@@ -4,6 +4,9 @@ import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.view.View.OnClickListener
+import android.view.animation.Animation
+import android.view.animation.Animation.AnimationListener
+import android.view.animation.AnimationUtils
 import android.widget.Button
 import androidx.activity.ComponentActivity
 import com.leeeeeeelo.circlemenu.CircleMenu
@@ -59,6 +62,8 @@ class SimpleMenuActivity : ComponentActivity(), OnClickListener {
         findViewById<Button>(R.id.toggleMenuButton).setOnClickListener(this)
         findViewById<Button>(R.id.showMenuButton).setOnClickListener(this)
         findViewById<Button>(R.id.hideMenuButton).setOnClickListener(this)
+        findViewById<Button>(R.id.animateInMenuButton).setOnClickListener(this)
+        findViewById<Button>(R.id.animateOutMenuButton).setOnClickListener(this)
     }
 
     override fun onClick(view: View?) {
@@ -68,7 +73,35 @@ class SimpleMenuActivity : ComponentActivity(), OnClickListener {
             R.id.toggleMenuButton -> circleMenu?.toggle()
             R.id.showMenuButton -> circleMenu?.visibility = View.VISIBLE
             R.id.hideMenuButton -> circleMenu?.visibility = View.GONE
+            R.id.animateOutMenuButton -> animateOut()
+            R.id.animateInMenuButton -> animateIn()
         }
+    }
+
+    private fun animateIn() {
+        if (circleMenu?.visibility == View.VISIBLE) {
+            return
+        }
+        circleMenu?.visibility = View.VISIBLE
+        val animation = AnimationUtils.loadAnimation(this, R.anim.push_right_in_and_bounce)
+        circleMenu?.startAnimation(animation)
+    }
+
+    private fun animateOut() {
+        if (circleMenu?.visibility != View.VISIBLE) {
+            return
+        }
+        val animation = AnimationUtils.loadAnimation(this, R.anim.bounce_and_push_right_out)
+        animation.setAnimationListener(object : AnimationListener {
+            override fun onAnimationStart(animation: Animation?) {}
+
+            override fun onAnimationEnd(animation: Animation?) {
+                circleMenu?.visibility = View.GONE
+            }
+
+            override fun onAnimationRepeat(animation: Animation?) {}
+        })
+        circleMenu?.startAnimation(animation)
     }
 
     override fun onDestroy() {

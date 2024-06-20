@@ -1,5 +1,6 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/snackbarContainer"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -9,28 +10,32 @@
         android:id="@+id/openMenuButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Open"/>
+        android:text="Open"
+        tools:ignore="HardcodedText"/>
 
     <Button
         android:id="@+id/closeMenuButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_toEndOf="@id/openMenuButton"
-        android:text="Close"/>
+        android:text="Close"
+        tools:ignore="HardcodedText"/>
 
     <Button
         android:id="@+id/toggleMenuButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_toEndOf="@id/closeMenuButton"
-        android:text="Toggle"/>
+        android:text="Toggle"
+        tools:ignore="HardcodedText"/>
 
     <Button
         android:id="@+id/showMenuButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/openMenuButton"
-        android:text="Show"/>
+        android:text="Show"
+        tools:ignore="HardcodedText"/>
 
     <Button
         android:id="@+id/hideMenuButton"
@@ -38,7 +43,25 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/openMenuButton"
         android:layout_toEndOf="@id/showMenuButton"
-        android:text="Hide"/>
+        android:text="Hide"
+        tools:ignore="HardcodedText"/>
+
+    <Button
+        android:id="@+id/animateInMenuButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/showMenuButton"
+        android:text="Animate In"
+        tools:ignore="HardcodedText"/>
+
+    <Button
+        android:id="@+id/animateOutMenuButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/showMenuButton"
+        android:layout_toEndOf="@id/animateInMenuButton"
+        android:text="Animate Out"
+        tools:ignore="HardcodedText" />
 
     <com.leeeeeeelo.circlemenu.CircleMenu
         android:id="@+id/circleMenu"
