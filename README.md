@@ -87,12 +87,25 @@ circleMenu.onButtonClickAnimationStart { buttonIndex -> }
 circleMenu.onButtonClickAnimationEnd { buttonIndex -> }  
 ```  
 
+Update Circle Menu visibility
+
+```kotlin
+circleMenu.visibility = View.GONE
+```
+
+Apply animations on Circle Menu
+
+```kotlin
+circleMenu.startAnimation(animation)  
+```
+
 Below are the Circle Menu attributes:
 
 - `buttonIcons` **(required)** - Array of icons of menu buttons
 - `buttonColors` **(required)** - Array of background colors of menu buttons
-- `iconsColor` - Array of color of buttons icons  
-  <br>
+- `iconsColor` - Array of color of buttons icons
+- `visibility` -  Circle Menu visibility  
+<br>
 - `startAngle` - Start circle angle
 - `maxAngle` - Maximum degree of the menu arc
 - `distance` - Distance between center menu and buttons (radius)
@@ -115,6 +128,7 @@ I was looking for a menu library myself when I stumbled upon [Circle Menu by Ima
 - Updated ```minSDK``` and ```targetSDK```
 - Fixed bugs
 - Added visibility support
+- Added animation support
 - Released via JitPack
 
 ## 5. Notice  :warning:
