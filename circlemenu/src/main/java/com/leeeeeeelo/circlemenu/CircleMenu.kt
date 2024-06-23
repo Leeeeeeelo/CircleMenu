@@ -194,9 +194,9 @@ class CircleMenu @JvmOverloads constructor(
         if (this.visibility == visibility) {
             return
         }
+        forceClose()
         menuLayout.visibility = visibility
         super.setVisibility(visibility)
-        forceClose()
     }
 
     override fun startAnimation(animation: Animation?) {
