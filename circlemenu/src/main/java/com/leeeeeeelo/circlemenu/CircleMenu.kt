@@ -186,13 +186,17 @@ class CircleMenu @JvmOverloads constructor(
         this.menuLayout.close(animate)
     }
 
+    private fun forceClose() {
+        this.menuLayout.forceClose()
+    }
+
     override fun setVisibility(visibility: Int) {
         if (this.visibility == visibility) {
             return
         }
-        close(false)
         menuLayout.visibility = visibility
         super.setVisibility(visibility)
+        forceClose()
     }
 
     override fun startAnimation(animation: Animation?) {

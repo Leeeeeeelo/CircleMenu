@@ -116,6 +116,11 @@ internal class MenuController(
         buttonAnimator.start()
     }
 
+    fun forceClose() {
+        isOpened = true
+        close(false)
+    }
+
     private fun layoutButtons(distance: Float) {
         val buttonsCount = buttons.size
         val angleStep = maxAngle / buttonsCount

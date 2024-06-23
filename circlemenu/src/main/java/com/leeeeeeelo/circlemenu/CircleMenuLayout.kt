@@ -159,6 +159,10 @@ internal class CircleMenuLayout(
         menuController.close(animate)
     }
 
+    fun forceClose() {
+        menuController.forceClose()
+    }
+
     fun onMenuOpenAnimationStart(listener: () -> Unit) {
         eventListener.onMenuOpenAnimationStart = listener
     }
